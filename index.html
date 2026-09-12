@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>James Zhu</title>
 
-  <!-- Font Awesome icons -->
+  <!-- Icons -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -21,6 +23,7 @@
 
     body {
       min-height: 100vh;
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -31,18 +34,32 @@
       color: white;
 
       background:
-        radial-gradient(circle at 15% 20%, rgba(80, 120, 255, 0.45), transparent 30%),
-        radial-gradient(circle at 85% 20%, rgba(170, 90, 255, 0.35), transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(70, 200, 255, 0.25), transparent 35%),
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(60, 110, 255, 0.50),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(180, 80, 255, 0.40),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(40, 190, 255, 0.30),
+          transparent 38%
+        ),
         #06070b;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      padding: 40px 20px;
-      overflow-x: hidden;
+      padding: 30px 20px;
     }
+
+
+    /* MAIN CONTAINER */
 
     .container {
       width: 100%;
@@ -50,68 +67,135 @@
       text-align: center;
     }
 
-    /* Main liquid glass panel */
+
+    /* LIQUID GLASS CARD */
+
     .glass {
-      background: rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
 
-      border: 1px solid rgba(255, 255, 255, 0.18);
-
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255,255,255,0.12);
-
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
+      padding: 45px 28px;
 
       border-radius: 32px;
 
-      padding: 42px 28px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.12),
+          rgba(255,255,255,0.04)
+        );
+
+      border: 1px solid rgba(255,255,255,0.18);
+
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.40),
+        inset 0 1px 0 rgba(255,255,255,0.20);
     }
+
+
+    /* LIGHT REFLECTION */
+
+    .glass::before {
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      top: -200px;
+      left: -100px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.15);
+
+      filter: blur(60px);
+
+      pointer-events: none;
+    }
+
+
+    /* NAME */
 
     h1 {
-      font-size: 42px;
+      position: relative;
+
+      font-size: 44px;
       font-weight: 650;
+
       letter-spacing: -1.5px;
-      margin-bottom: 8px;
+
+      margin-bottom: 10px;
     }
 
+
+    /* DESCRIPTION */
+
     .subtitle {
-      color: rgba(255,255,255,0.65);
-      font-size: 16px;
-      line-height: 1.6;
+      position: relative;
+
+      color: rgba(255,255,255,0.62);
+
+      font-size: 15px;
+      line-height: 1.7;
+
+      margin-bottom: 24px;
+    }
+
+
+    /* EMAIL */
+
+    .email-section {
+      position: relative;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 7px;
+
       margin-bottom: 28px;
     }
 
-    .email-section {
-      margin-bottom: 26px;
-      line-height: 1.8;
-    }
 
     .email {
-      display: block;
+      color: rgba(255,255,255,0.72);
+
       text-decoration: none;
-      color: rgba(255,255,255,0.78);
+
       font-size: 14px;
 
-      transition: 0.2s ease;
+      transition: 0.2s;
     }
+
 
     .email:hover {
       color: white;
     }
 
+
     .email i {
       margin-right: 7px;
-      opacity: 0.75;
     }
 
+
+    /* LINKS */
+
     .links {
+      position: relative;
+
       display: flex;
       flex-direction: column;
+
       gap: 14px;
     }
 
-    /* Glass buttons */
+
+    /* GLASS BUTTON */
+
     .link {
       display: flex;
       align-items: center;
@@ -128,83 +212,145 @@
       font-size: 16px;
       font-weight: 550;
 
-      background: rgba(255,255,255,0.07);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.10),
+          rgba(255,255,255,0.04)
+        );
 
-      border: 1px solid rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.14);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
 
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.10);
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+        inset 0 1px 0 rgba(255,255,255,0.12);
 
       transition:
         transform 0.25s ease,
         background 0.25s ease,
-        border 0.25s ease,
+        border-color 0.25s ease,
         box-shadow 0.25s ease;
     }
+
+
+    /* HOVER */
 
     .link:hover {
       transform: translateY(-3px) scale(1.01);
 
-      background: rgba(255,255,255,0.14);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0.18),
+          rgba(255,255,255,0.08)
+        );
 
-      border-color: rgba(255,255,255,0.28);
+      border-color: rgba(255,255,255,0.30);
 
       box-shadow:
-        0 10px 30px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.15);
+        0 12px 35px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.18);
     }
 
+
+    /* CLICK EFFECT */
+
+    .link:active {
+      transform: scale(0.97);
+    }
+
+
+    /* ICON */
+
     .link i {
-      width: 26px;
-      font-size: 20px;
+      width: 28px;
+
+      font-size: 21px;
+
       text-align: center;
+
       margin-right: 14px;
     }
+
 
     .link-text {
       flex: 1;
       text-align: left;
     }
 
+
+    /* ARROW */
+
     .arrow {
-      color: rgba(255,255,255,0.40);
-      font-size: 13px;
+      font-size: 12px !important;
+
+      color: rgba(255,255,255,0.35);
+
+      margin-right: 0 !important;
     }
 
-    /* Resume gets slightly stronger glass */
+
+    /* SPECIAL RESUME BUTTON */
+
     .resume {
       background:
         linear-gradient(
           135deg,
-          rgba(110, 140, 255, 0.24),
-          rgba(180, 100, 255, 0.18)
+          rgba(90,130,255,0.25),
+          rgba(175,90,255,0.18)
         );
 
-      border-color: rgba(180,190,255,0.30);
+      border-color: rgba(170,180,255,0.30);
     }
 
+
+    /* FOOTER */
+
     footer {
+      position: relative;
+
       margin-top: 28px;
-      color: rgba(255,255,255,0.35);
+
+      color: rgba(255,255,255,0.30);
+
       font-size: 12px;
     }
 
-    /* mobile */
+
+    /* PHONE */
+
     @media (max-width: 600px) {
+
+      body {
+        padding: 20px 15px;
+      }
+
       .glass {
-        padding: 34px 20px;
-        border-radius: 26px;
+        padding: 36px 20px;
+
+        border-radius: 27px;
       }
 
       h1 {
-        font-size: 36px;
+        font-size: 38px;
       }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      .link {
+        padding: 16px 18px;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
@@ -212,35 +358,63 @@
 
     <section class="glass">
 
+
+      <!-- NAME -->
+
       <h1>James Zhu</h1>
 
+
+      <!-- INTRO -->
+
       <p class="subtitle">
+
         Electrical Engineering @ University of Waterloo
+
         <br>
-       Projects • Technology • Engineering
+
+        Projects • Technology • Engineering
+
       </p>
+
+
+
+      <!-- EMAIL -->
 
       <div class="email-section">
 
-        <a class="email" href="mailto:j529zhu@uwaterloo.ca">
+        <a
+          class="email"
+          href="mailto:j529zhu@uwaterloo.ca"
+        >
           <i class="fa-solid fa-envelope"></i>
           j529zhu@uwaterloo.ca
         </a>
 
-        <a class="email" href="mailto:hongyizhu2007@outlook.com">
+
+        <a
+          class="email"
+          href="mailto:hongyizhu2007@outlook.com"
+        >
           <i class="fa-regular fa-envelope"></i>
           hongyizhu2007@outlook.com
         </a>
 
       </div>
 
+
+
+      <!-- BUTTONS -->
+
       <div class="links">
+
+
+        <!-- GITHUB -->
 
         <a
           class="link"
           href="https://github.com/JamesChu-byte337"
-          target="_blank"
         >
+
           <i class="fa-brands fa-github"></i>
 
           <span class="link-text">
@@ -248,14 +422,18 @@
           </span>
 
           <i class="fa-solid fa-chevron-right arrow"></i>
+
         </a>
 
 
+
+        <!-- LINKEDIN -->
+
         <a
           class="link"
-          href="https://www.linkedin.com/in/james-zhu-elec07?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-          target="_blank"
+          href="https://www.linkedin.com/in/james-zhu-elec07/"
         >
+
           <i class="fa-brands fa-linkedin"></i>
 
           <span class="link-text">
@@ -263,14 +441,18 @@
           </span>
 
           <i class="fa-solid fa-chevron-right arrow"></i>
+
         </a>
 
 
+
+        <!-- INSTAGRAM -->
+
         <a
           class="link"
-          href="https://www.instagram.com/film.james.zhu?stkn=MW81Z244ajRpYTMzcA%3D%3D&utm_source=qr"
-          target="_blank"
+          href="https://www.instagram.com/film.james.zhu/"
         >
+
           <i class="fa-brands fa-instagram"></i>
 
           <span class="link-text">
@@ -278,13 +460,18 @@
           </span>
 
           <i class="fa-solid fa-chevron-right arrow"></i>
+
         </a>
 
+
+
+        <!-- PROJECTS -->
 
         <a
           class="link"
           href="projects.html"
         >
+
           <i class="fa-solid fa-code"></i>
 
           <span class="link-text">
@@ -292,13 +479,18 @@
           </span>
 
           <i class="fa-solid fa-chevron-right arrow"></i>
+
         </a>
 
+
+
+        <!-- RESUME -->
 
         <a
           class="link resume"
           href="request-resume.html"
         >
+
           <i class="fa-solid fa-file-lines"></i>
 
           <span class="link-text">
@@ -306,17 +498,22 @@
           </span>
 
           <i class="fa-solid fa-chevron-right arrow"></i>
+
         </a>
 
+
       </div>
+
 
       <footer>
         © 2026 James Zhu
       </footer>
+
 
     </section>
 
   </main>
 
 </body>
+
 </html>
