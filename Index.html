@@ -1,19 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>James Zhu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Chu</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+
+      background:
+        radial-gradient(circle at top left, #2d4cff, transparent 35%),
+        radial-gradient(circle at bottom right, #7b2cff, transparent 35%),
+        #0b1020;
+
+      color: white;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 40px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .profile {
+      width: 115px;
+      height: 115px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.8);
+
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #c7cad6;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .link {
+      display: block;
+
+      text-decoration: none;
+      color: white;
+
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.20);
+
+      padding: 17px 20px;
+      margin: 14px 0;
+
+      border-radius: 14px;
+
+      font-size: 17px;
+      font-weight: 600;
+
+      transition: 0.25s;
+    }
+
+    .link:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.18);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .resume {
+      background: linear-gradient(135deg, #4f7cff, #8b5cff);
+      border: none;
+    }
+
+    .resume:hover {
+      background: linear-gradient(135deg, #628cff, #9a70ff);
+    }
+
+    footer {
+      margin-top: 35px;
+      color: #8f95aa;
+      font-size: 13px;
+    }
+  </style>
 </head>
 
 <body>
-    <h1>James Zhu</h1>
-    <p>Electrical Engineering @ Uwaterloo </p>
-     <p> Waterloo, Ontario </p>
-   
-    <a href="www.linkedin.com/in/james-zhu-elec07">LinkedIn</a>
-    <br>
-    <a href="https://github.com/JamesChu-byte337">GitHub</a>
-    <br>
-    <a href="https://www.instagram.com/film.james.zhu/">Instagram</a>
-    
+
+  <main class="container">
+
+    <img
+      src="profile.jpg"
+      alt="James Chu"
+      class="profile"
+    >
+
+    <h1>James Chu</h1>
+
+    <p class="subtitle">
+      Electrical Engineering @ University of Waterloo
+      <br>
+      Engineering • Technology • Photography
+    </p>
+
+    <a
+      class="link"
+      href="https://github.com/JamesChu-byte337"
+      target="_blank"
+    >
+     GitHub
+    </a>
+
+    <a
+      class="link"
+      href="YOUR-LINKEDIN-LINK"
+      target="_blank"
+    >
+     LinkedIn
+    </a>
+
+    <a
+      class="link"
+      href="YOUR-INSTAGRAM-LINK"
+      target="_blank"
+    >
+       Instagram
+    </a>
+
+
+    <footer>
+      © 2026 James Chu
+    </footer>
+
+  </main>
+
 </body>
 </html>
