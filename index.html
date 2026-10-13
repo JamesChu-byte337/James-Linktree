@@ -1,377 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>James Zhu</title>
-
-  <!-- Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100vh;
-
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        "Segoe UI",
-        sans-serif;
-
-      color: white;
-
-      background:
-        radial-gradient(
-          circle at 15% 15%,
-          rgba(60, 110, 255, 0.50),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 85% 20%,
-          rgba(180, 80, 255, 0.40),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 50% 90%,
-          rgba(40, 190, 255, 0.30),
-          transparent 38%
-        ),
-        #06070b;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 30px 20px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 520px;
-      text-align: center;
-    }
-
-    .glass {
-      position: relative;
-      overflow: hidden;
-
-      padding: 45px 28px;
-
-      border-radius: 32px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0.12),
-          rgba(255,255,255,0.04)
-        );
-
-      border: 1px solid rgba(255,255,255,0.18);
-
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-
-      box-shadow:
-        0 25px 70px rgba(0,0,0,0.40),
-        inset 0 1px 0 rgba(255,255,255,0.20);
-    }
-
-    .glass::before {
-      content: "";
-
-      position: absolute;
-
-      width: 300px;
-      height: 300px;
-
-      top: -200px;
-      left: -100px;
-
-      border-radius: 50%;
-
-      background: rgba(255,255,255,0.15);
-
-      filter: blur(60px);
-
-      pointer-events: none;
-    }
-
-    h1 {
-      position: relative;
-
-      font-size: 44px;
-      font-weight: 650;
-
-      letter-spacing: -1.5px;
-
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      position: relative;
-
-      color: rgba(255,255,255,0.62);
-
-      font-size: 15px;
-      line-height: 1.7;
-
-      margin-bottom: 24px;
-    }
-
-    .email-section {
-      position: relative;
-
-      display: flex;
-      flex-direction: column;
-
-      gap: 7px;
-
-      margin-bottom: 28px;
-    }
-
-    .email {
-      color: rgba(255,255,255,0.72);
-
-      text-decoration: none;
-
-      font-size: 14px;
-
-      transition: 0.2s;
-    }
-
-    .email:hover {
-      color: white;
-    }
-
-    .email i {
-      margin-right: 7px;
-    }
-
-    .links {
-      position: relative;
-
-      display: flex;
-      flex-direction: column;
-
-      gap: 14px;
-    }
-
-    .link {
-      display: flex;
-      align-items: center;
-
-      width: 100%;
-
-      padding: 17px 20px;
-
-      border-radius: 18px;
-
-      color: white;
-      text-decoration: none;
-
-      font-size: 16px;
-      font-weight: 550;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0.10),
-          rgba(255,255,255,0.04)
-        );
-
-      border: 1px solid rgba(255,255,255,0.14);
-
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.12);
-
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-    }
-
-    .link:hover {
-      transform: translateY(-3px) scale(1.01);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0.18),
-          rgba(255,255,255,0.08)
-        );
-
-      border-color: rgba(255,255,255,0.30);
-
-      box-shadow:
-        0 12px 35px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.18);
-    }
-
-    .link:active {
-      transform: scale(0.97);
-    }
-
-    .link i {
-      width: 28px;
-
-      font-size: 21px;
-
-      text-align: center;
-
-      margin-right: 14px;
-    }
-
-    .link-text {
-      flex: 1;
-      text-align: left;
-    }
-
-    .arrow {
-      font-size: 12px !important;
-
-      color: rgba(255,255,255,0.35);
-
-      margin-right: 0 !important;
-    }
-
-    footer {
-      position: relative;
-
-      margin-top: 28px;
-
-      color: rgba(255,255,255,0.30);
-
-      font-size: 12px;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 15px;
-      }
-
-      .glass {
-        padding: 36px 20px;
-        border-radius: 27px;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      .subtitle {
-        font-size: 14px;
-      }
-
-      .link {
-        padding: 16px 18px;
-      }
-    }
-
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e9e8e2">
+  <meta name="description" content="A little window into James Zhu’s world. Electrical Engineering at the University of Waterloo. Links, notes, and a soundtrack.">
+  <meta property="og:title" content="James Zhu — a little desktop">
+  <meta property="og:description" content="Come on in. A personal desktop for links, little notes, and good music.">
+  <title>James Zhu — a little desktop</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
 </head>
-
 <body>
+  <svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-mac" viewBox="0 0 48 48"><path d="M9 4h30v34H9zM5 38h38v6H5z"/><path d="M14 9h20v19H14zM16 33h3m9 0h6M19 16v3m10-3v3m-10 3c3 3 7 3 10 0"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4 9v11M4 4v.1M9 20V9h5v2c4-4 7-1 7 3v6M14 20v-6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.1"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M8 21v-4c-5 1-6-2-6-2m6 2c-5-1-6-8-2-10L5 3l5 2h4l5-2-1 4c4 2 3 9-2 10v4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="m3 5 9 8 9-8"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-3v13M9 9l12-3"/><ellipse cx="5.5" cy="18.5" rx="3.5" ry="2.5"/><ellipse cx="17.5" cy="15.5" rx="3.5" ry="2.5"/></symbol>
+    <symbol id="i-note" viewBox="0 0 24 24"><path d="M4 2h16v15l-5 5H4zM15 22v-5h5M8 7h8M8 11h8M8 15h3"/></symbol>
+    <symbol id="i-drive" viewBox="0 0 48 48"><path d="m10 9-6 22v9h40v-9L38 9zM4 31h40M9 36h2m4 0h2m18 0h4M12 14h24"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 48 48"><path d="M12 12v31h24V12M8 12h32M18 12V5h12v7M19 18v18m10-18v18"/></symbol>
+    <symbol id="i-tune" viewBox="0 0 24 24"><path d="M3 6h18M3 18h18M3 12h18M7 3v6M16 9v6M10 15v6"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5zM15 8q5 4 0 8m3-11q8 7 0 14"/></symbol>
+  </svg>
 
-  <main class="container">
-
-    <section class="glass">
-
-      <h1>James Zhu</h1>
-
-      <p class="subtitle">
-        Electrical Engineering @ University of Waterloo
-        <br>
-        "If the climb feels overwhelming and you begin to doubt your intellect, your choices, or your capacity, remember this: struggle does not disqualify you from greatness — it is the prerequisite shared by everyone who ever reached the summit."
-        — Christina Koch
-      </p>
-
-      <div class="email-section">
-
-        <a
-          class="email"
-          href="mailto:j529zhu@uwaterloo.ca"
-        >
-          <i class="fa-solid fa-envelope"></i>
-          j529zhu@uwaterloo.ca
-        </a>
-
-        <a
-          class="email"
-          href="mailto:hongyizhu2007@outlook.com"
-        >
-          <i class="fa-regular fa-envelope"></i>
-          hongyizhu2007@outlook.com
-        </a>
-
+  <section class="intro" id="intro" aria-label="Open James’s desktop">
+    <div class="intro-sticky">
+      <header class="intro-nav"><a class="brand" href="#desktop" data-enter><span class="brand-mark">jz.</span><span>A LITTLE DESKTOP</span></a><button class="quiet-button" data-enter>Skip intro <span aria-hidden="true">↗</span></button></header>
+      <div class="intro-copy"><span class="eyebrow"><span class="status-dot"></span> JAMES ZHU’S CORNER OF THE INTERNET</span><h1>Good things start<br>with a little <em>curiosity.</em></h1><p>A few links. A little music. Make yourself at home.</p></div>
+      <div class="scene" aria-hidden="true">
+        <div class="ground-shadow"></div>
+        <div class="laptop">
+          <div class="lid">
+            <div class="lid-back"><span class="lid-monogram">jz.</span></div>
+            <div class="lid-front"><div class="camera"></div><div class="screen"><div id="screen-preview" class="screen-preview"></div><div class="screen-glare"></div></div><span class="bezel-label">MacBook Pro</span></div>
+          </div>
+          <div class="laptop-base"><div class="speaker speaker-left"></div><div class="keyboard" id="keyboard"></div><div class="speaker speaker-right"></div><div class="trackpad"></div></div>
+          <div class="base-edge"><span></span></div>
+        </div>
       </div>
+      <div class="intro-bottom"><button class="scroll-prompt" data-enter><span class="scroll-symbol"><span></span></span><span class="scroll-label">SCROLL TO OPEN</span><span class="down-arrow" aria-hidden="true">↓</span></button><span class="intro-caption">Designed with a little nostalgia.</span><span class="intro-count">01 <span>/</span> 02</span></div>
+      <div class="scroll-progress" aria-hidden="true"></div>
+    </div>
+  </section>
 
-      <div class="links">
+  <main id="desktop" class="desktop" tabindex="-1">
+    <nav class="menubar" aria-label="Desktop menu">
+      <div class="menu-left"><button class="system-menu" data-dialog="about-dialog" aria-label="About this desktop"><svg class="icon"><use href="#i-mac"/></svg></button><span class="finder-name">James’s desktop</span><div class="menu-wrap"><button class="menu-trigger" aria-expanded="false" aria-controls="file-menu">File</button><div id="file-menu" class="dropdown" hidden><button id="share-button">Copy website link <span>↗</span></button><a href="mailto:j529zhu@uwaterloo.ca">Write an email <span>⌘ E</span></a><button id="download-config">Export preferences <span>↓</span></button></div></div><div class="menu-wrap"><button class="menu-trigger" aria-expanded="false" aria-controls="view-menu">View</button><div id="view-menu" class="dropdown" hidden><button id="texture-toggle">Toggle desktop texture</button><button id="restore-windows">Restore all windows</button><button id="replay">Replay opening <span>↺</span></button></div></div><button class="menu-item" data-dialog="help-dialog">Help</button></div>
+      <div class="menu-right"><svg class="menu-sound icon"><use href="#i-sound"/></svg><span class="battery" aria-label="Fully charged"></span><time id="clock">12:00 PM</time></div>
+    </nav>
+    <div class="desktop-wallpaper" aria-hidden="true"><span>hello.</span></div>
+    <div class="desktop-body">
+      <div class="desktop-heading"><span class="eyebrow">PERSONAL COMPUTER, PERSONAL SPACE.</span><span class="desktop-version">JZ OS · VERSION 1.0</span></div>
+      <div class="windows">
+        <section class="window profile-window" data-window="profile" aria-labelledby="profile-title">
+          <div class="titlebar" tabindex="0" aria-label="Profile window. Drag to move; release to return."><button class="window-close" aria-label="Minimize profile" data-minimize="profile"></button><h2 id="profile-title">About James</h2><span class="titlebar-right" aria-hidden="true">▤</span></div>
+          <div class="window-body profile-body"><div class="avatar"><svg><use href="#i-mac"/></svg><div class="rainbow"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="profile-text"><div class="profile-kicker">HELLO, WORLD.</div><h3 id="display-name">I’m James Zhu<span class="period">.</span></h3><p id="profile-subtitle">Electrical Engineering @ University of Waterloo</p><span class="profile-note"><span class="status-dot"></span> A curious mind. An open window.</span></div><div class="profile-stamp" aria-hidden="true"><span>EST.</span><strong>⌘</strong><span>PERSONAL SPACE</span></div></div>
+          <div class="window-status"><span>1 human · a whole lot of curiosity</span><span class="drag-hint">Grab a title bar. Give it a wiggle. ↔</span></div>
+        </section>
 
-        <a
-          class="link"
-          href="https://github.com/JamesChu-byte337"
-        >
-          <i class="fa-brands fa-github"></i>
+        <section class="window links-window" data-window="links" aria-labelledby="links-title">
+          <div class="titlebar" tabindex="0" aria-label="Links window. Drag to move; release to return."><button class="window-close" aria-label="Minimize links" data-minimize="links"></button><h2 id="links-title">Find me elsewhere</h2><span class="titlebar-right" aria-hidden="true">▤</span></div>
+          <div class="window-body links-body"><p class="small-note">A few other windows into my world.</p><a class="social-link" href="https://www.linkedin.com/in/james-zhu-elec07/" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg class="icon"><use href="#i-linkedin"/></svg></span><span><strong>LinkedIn</strong><small>Let’s connect</small></span><svg class="arrow-icon icon"><use href="#i-arrow"/></svg></a><a class="social-link" href="https://www.instagram.com/film.james.zhu/" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg class="icon"><use href="#i-instagram"/></svg></span><span><strong>Instagram</strong><small>@film.james.zhu</small></span><svg class="arrow-icon icon"><use href="#i-arrow"/></svg></a><a class="social-link" href="https://github.com/JamesChu-byte337" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg class="icon"><use href="#i-github"/></svg></span><span><strong>GitHub</strong><small>Things I’m building</small></span><svg class="arrow-icon icon"><use href="#i-arrow"/></svg></a><button class="social-link" data-dialog="contact-dialog"><span class="link-icon"><svg class="icon"><use href="#i-mail"/></svg></span><span><strong>Say hello</strong><small>Good conversations start here</small></span><svg class="arrow-icon icon"><use href="#i-arrow"/></svg></button></div><div class="window-status"><span>4 items</span><span>Always a new tab ↗</span></div>
+        </section>
 
-          <span class="link-text">
-            GitHub
-          </span>
+        <section class="window quote-window" data-window="quote" aria-labelledby="quote-title">
+          <div class="titlebar" tabindex="0" aria-label="Notes window. Drag to move; release to return."><button class="window-close" aria-label="Minimize notes" data-minimize="quote"></button><h2 id="quote-title">A note to keep</h2><span class="titlebar-right" aria-hidden="true">▤</span></div>
+          <div class="window-body quote-body"><div class="note-meta"><span>WORDS FOR THE WAY UP</span><svg class="icon"><use href="#i-note"/></svg></div><blockquote><p id="quote-text"></p><footer id="quote-author"></footer></blockquote><div class="quote-controls"><button class="square-button" id="prev-quote" aria-label="Previous quote">←</button><span id="quote-count">01 / 01</span><button class="square-button" id="next-quote" aria-label="Next quote">→</button><button class="text-button" data-dialog="quote-dialog">Edit notes ↗</button></div></div>
+        </section>
 
-          <i class="fa-solid fa-chevron-right arrow"></i>
-        </a>
-
-        <a
-          class="link"
-          href="https://www.linkedin.com/in/james-zhu-elec07/"
-        >
-          <i class="fa-brands fa-linkedin"></i>
-
-          <span class="link-text">
-            LinkedIn
-          </span>
-
-          <i class="fa-solid fa-chevron-right arrow"></i>
-        </a>
-
-        <a
-          class="link"
-          href="https://www.instagram.com/film.james.zhu/"
-        >
-          <i class="fa-brands fa-instagram"></i>
-
-          <span class="link-text">
-            Instagram
-          </span>
-
-          <i class="fa-solid fa-chevron-right arrow"></i>
-        </a>
-
+        <section class="window music-window" data-window="music" aria-labelledby="music-title">
+          <div class="titlebar" tabindex="0" aria-label="Music window. Drag to move; release to return."><button class="window-close" aria-label="Minimize music" data-minimize="music"></button><h2 id="music-title">A little background music</h2><span class="titlebar-right" aria-hidden="true">▤</span></div>
+          <div class="window-body music-body"><div class="music-heading"><div><span class="status-dot"></span><span>THE DESKTOP SOUNDTRACK</span></div><button class="text-button" data-dialog="music-dialog">Change music <span aria-hidden="true">↗</span></button></div><div id="spotify-container" class="spotify-container"><div class="music-loading"><svg class="icon"><use href="#i-music"/></svg><span>Making room for a little music…</span></div></div><div class="music-footer"><span>Press play. Stay a little.</span><a id="spotify-external" href="https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO" target="_blank" rel="noopener noreferrer">Open in Spotify ↗</a></div></div>
+        </section>
       </div>
-
-      <footer>
-        © 2026 James Zhu
-      </footer>
-
-    </section>
-
+      <aside class="desktop-icons" aria-label="Desktop shortcuts"><button data-dialog="about-dialog"><svg><use href="#i-drive"/></svg><span>Macintosh HD</span></button><button data-dialog="contact-dialog"><svg><use href="#i-mail"/></svg><span>Contact me</span></button><button id="trash-button"><svg><use href="#i-trash"/></svg><span>Trash</span></button></aside>
+      <footer class="desktop-footer"><span>Made of pixels & a little personality.</span><div class="footer-rainbow" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><span>Thanks for stopping by. <span aria-hidden="true">☺</span></span></footer>
+    </div>
+    <nav class="dock" aria-label="Restore a desktop window"><button data-restore="profile" aria-label="Show profile"><svg class="icon"><use href="#i-mac"/></svg><span>About me</span></button><button data-restore="links" aria-label="Show links"><svg class="icon"><use href="#i-arrow"/></svg><span>My links</span></button><button data-restore="quote" aria-label="Show notes"><svg class="icon"><use href="#i-note"/></svg><span>Notes</span></button><button data-restore="music" aria-label="Show music"><svg class="icon"><use href="#i-music"/></svg><span>Music</span></button><span class="dock-divider"></span><button data-dialog="help-dialog" aria-label="Desktop help"><span class="help-glyph">?</span><span>Help</span></button></nav>
   </main>
 
-</body>
+  <dialog id="music-dialog" aria-label="music window" class="dialog"><form id="music-form"><div class="dialog-title"><h2>Choose the soundtrack</h2><button type="button" data-close aria-label="Close">×</button></div><p>Paste a Spotify song, album, artist, or playlist link.</p><label for="spotify-url">Spotify link</label><input id="spotify-url" type="url" required placeholder="https://open.spotify.com/playlist/…" autocomplete="off"><p class="form-error" id="music-error" role="alert"></p><p class="form-note">Your selection is saved on this browser. Playback stays in your hands.</p><div class="dialog-actions"><button class="classic-button" type="button" data-close>Cancel</button><button class="classic-button primary" type="submit">Save soundtrack</button></div></form></dialog>
 
+  <dialog id="quote-dialog" aria-label="quote window" class="dialog"><form id="quote-form"><div class="dialog-title"><h2>Notes worth keeping</h2><button type="button" data-close aria-label="Close">×</button></div><label for="quote-select">Choose a note</label><select id="quote-select"></select><label for="quote-input">Words to keep</label><textarea id="quote-input" rows="6" maxlength="1200" required></textarea><label for="author-input">Author <span>(optional)</span></label><input id="author-input" maxlength="100" placeholder="Your own words, or the person who said them"><p class="form-note">Saved on this browser. Use File → Export preferences to download changes for the site’s config.json.</p><div class="dialog-actions"><button class="classic-button danger" id="delete-quote" type="button">Delete</button><button class="classic-button" type="button" data-close>Cancel</button><button class="classic-button primary" type="submit">Save note</button></div></form></dialog>
+
+  <dialog id="contact-dialog" aria-label="contact window" class="dialog"><div class="dialog-title"><h2>You’ve got a friend in your inbox.</h2><button data-close aria-label="Close">×</button></div><p>For a project, an idea, or just a hello.</p><a class="contact-link" href="mailto:j529zhu@uwaterloo.ca"><span>UNIVERSITY</span><strong>j529zhu@uwaterloo.ca ↗</strong></a><a class="contact-link" href="mailto:hongyizhu2007@outlook.com"><span>PERSONAL</span><strong>hongyizhu2007@outlook.com ↗</strong></a><p class="form-note">Opens your email app.</p></dialog>
+
+  <dialog id="about-dialog" aria-label="about window" class="dialog about-dialog"><div class="dialog-title"><h2>About this Macintosh-ish</h2><button data-close aria-label="Close">×</button></div><svg class="about-mac"><use href="#i-mac"/></svg><h3>Small desktop. Big curiosity.</h3><p>James Zhu<br>Electrical Engineering @ University of Waterloo</p><div class="about-specs"><span>System</span><strong>JZ OS 1.0</strong><span>Memory</span><strong>Room for new ideas</strong><span>Connection</span><strong>Human to human</strong></div><p class="form-note">An independent personal site inspired by the Macintosh. Made for every screen.</p></dialog>
+
+  <dialog id="help-dialog" aria-label="help window" class="dialog"><div class="dialog-title"><h2>A few friendly pointers</h2><button data-close aria-label="Close">×</button></div><div class="help-row"><span>↔</span><p><strong>Give a window a wiggle.</strong> Drag its striped title bar, then let go. It springs right back. Works with a mouse or your finger.</p></div><div class="help-row"><span>▣</span><p><strong>Make a little room.</strong> The square in each title bar minimizes a window. The bottom dock brings it back.</p></div><div class="help-row"><span>♫</span><p><strong>Set the mood.</strong> Change the Spotify link or edit your notes. Changes stay in this browser; export preferences to update the site source.</p></div><div class="help-row"><span>⌨</span><p><strong>Keyboard welcome.</strong> Tab moves between controls. Enter opens links. Escape closes menus and dialogs. Your reduced-motion setting is respected.</p></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript-message">Welcome to James Zhu’s desktop. <a href="https://www.linkedin.com/in/james-zhu-elec07/">LinkedIn</a> · <a href="https://www.instagram.com/film.james.zhu/">Instagram</a> · <a href="https://github.com/JamesChu-byte337">GitHub</a> · <a href="mailto:j529zhu@uwaterloo.ca">Email</a></div></noscript>
+</body>
 </html>
