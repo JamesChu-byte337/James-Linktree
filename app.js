@@ -7,7 +7,7 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const touchInput = matchMedia('(pointer: coarse)');
 const STORAGE = 'jz-desktop-preferences-v1';
 let config = {
-  name: 'James Zhu',
+  name: 'James',
   subtitle: 'Electrical Engineering @ University of Waterloo',
   spotify: 'https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO',
   quotes: [{ text: 'If the climb feels overwhelming and you begin to doubt your intellect, your choices, or your capacity, remember this: struggle does not disqualify you from greatness — it is the prerequisite shared by everyone who ever reached the summit.', author: 'Christina Koch' }],
